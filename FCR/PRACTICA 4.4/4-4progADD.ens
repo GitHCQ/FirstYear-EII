@@ -1,0 +1,18 @@
+ORIGEN 0500h
+INICIO primera
+
+.DATOS
+  num1 VALOR 1101b
+  num2 VALOR 1011b,1001b
+
+.CODIGO
+
+primera: 
+  ; Inicializar los punteros
+  movl r0, BYTEBAJO DIRECCION num1
+  movh r0, BYTEALTO DIRECCION num1
+  movl r1, BYTEBAJO DIRECCION num2
+  movh r1, BYTEALTO DIRECCION num2
+  mov r3,[r0]
+  mov r4,[r1]
+  FIN

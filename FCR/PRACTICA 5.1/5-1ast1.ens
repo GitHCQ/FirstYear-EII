@@ -1,0 +1,21 @@
+ORIGEN 0500h
+INICIO primera
+
+.DATOS
+  operando1 VALOR 0F000h
+  operando2 VALOR 072Ah
+
+.CODIGO
+
+primera: 
+  ; Inicializar los punteros
+  movl r0, BYTEBAJO DIRECCION operando1
+  movh r0, BYTEALTO DIRECCION operando1
+  movl r1, BYTEBAJO DIRECCION operando2
+  movh r1, BYTEALTO DIRECCION operando2
+
+  ; Traer los operandos de memoria a registros
+  mov r2, [r1]
+  mov r3,[r0]
+  mov [r3],r2
+FIN

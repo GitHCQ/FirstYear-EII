@@ -1,0 +1,28 @@
+ORIGEN 0500h
+INICIO primera
+.PILA 10h
+.DATOS
+  cad VALOR "Hola, mundo",0
+
+.CODIGO
+
+primera: 
+  ; Inicializar los punteros
+  xor r3,r3,r3
+  movl r0, 00h
+  movh r0, 0F0h
+  movl r1, BYTEBAJO DIRECCION cad
+  movh r1, BYTEALTO DIRECCION cad
+
+  ; Traer los operandos de memoria a registros
+bucle:
+  mov r2,[r1]
+  cmp r2,r3
+  brz final
+  movh r2,02h 
+  mov [r0],r2
+  inc r1
+  inc r0
+  jmp bucle
+final:
+FIN

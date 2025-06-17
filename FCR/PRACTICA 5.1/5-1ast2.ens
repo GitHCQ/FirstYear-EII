@@ -1,0 +1,28 @@
+ORIGEN 0500h
+INICIO primera
+
+.DATOS
+.CODIGO
+
+primera: 
+  ; Inicializar los punteros
+  movl r0, 00h
+  movh r0, 0F0h
+  movl r1, '*'
+  movh r1, 32h
+  movl r5,16
+  movh r5,0
+  movl r6,8
+  movh r6,0
+  xor r4,r4,r4
+  
+bucle:
+  cmp r6,r4
+  brz fin_bucle
+  ; Traer los operandos de memoria a registros
+  mov [r0],r1
+  add r0,r0,r5
+  dec r6
+  jmp bucle
+fin_bucle:
+FIN

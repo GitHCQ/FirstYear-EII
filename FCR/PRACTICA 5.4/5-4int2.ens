@@ -1,0 +1,33 @@
+ORIGEN 300h
+.PILA 20h
+.CODIGO
+  MOVL  R0, 3  ; Vector a modificar
+  MOVH  R0, 0
+  MOVL  R1, BYTEBAJO DIRECCION rutina_util
+  MOVH  R1, BYTEALTO DIRECCION rutina_util
+  mov [r0],r1 ;Instrucción que pone 500Ah en la dirección 0003
+
+
+  STI       ; Permitir interrupciones
+
+  ; Una vez instalada la rutina, el programa
+  ; principal se encierra en un bucle infinito
+PorSiempre:
+  JMP PorSiempre
+
+; Y esta sería la rutina minima:
+PROCEDIMIENTO rutina_util
+ push r0
+ push r1
+ movl r0,00h
+ movh r0,0E0h
+ mov r1,[r0]
+ mov [r0],r1
+ pop r1
+ pop r0
+ IRET
+FINP
+
+
+
+FIN
