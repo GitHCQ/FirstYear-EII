@@ -1,0 +1,127 @@
+package uo.mp.lab04.dome.model;
+
+import java.util.Objects;
+
+import uo.mp.util.check.ArgumentChecks;
+
+public class VideoGame extends Item {
+    private String author;
+    private int numberOfPlayers;
+    private String propietary;
+    private Platform platform;
+
+    public VideoGame(String theTitle, String propietary, String author, Platform plataform, int numberOfPlayers,
+	    double price) {
+	super(theTitle, price);
+	setPropietary(propietary);
+	setAuthor(author);
+	setNumberOfPlayers(numberOfPlayers);
+    }
+
+    /**
+     * 
+     * @param arg String with the new propietary
+     * @throws IllegalArgumentException if the argument is null, 0-length or does not contain meaningful characters
+     */
+    private void setPropietary(String arg) {
+	ArgumentChecks.isNotNull(arg);
+	ArgumentChecks.isNotEmpty(arg);
+	ArgumentChecks.isNotBlank(arg);
+	this.propietary = arg;
+    }
+
+    /**
+     * @return the propietary of the videoGame
+     */
+    public String getPropietary() {
+	return this.propietary;
+    }
+
+    /**
+     * 
+     * @param arg String with the new author
+     * @throws IllegalArgumentException if the argument is null, 0-length or does not contain meaningful characters
+     */
+    private void setAuthor(String arg) {
+	ArgumentChecks.isNotNull(arg);
+	ArgumentChecks.isNotEmpty(arg);
+	ArgumentChecks.isNotBlank(arg);
+	this.author = arg;
+    }
+
+    /**
+     * @return the author of the videoGame
+     */
+    public String getAuthor() {
+	return this.author;
+    }
+
+    /**
+     * 
+     * @param arg String with the new author
+     * @throws IllegalArgumentException if the argument is null, 0-length or does not contain meaningful characters
+     */
+    private void setNumberOfPlayers(int arg) {
+	ArgumentChecks.isNotNull(arg);
+	this.numberOfPlayers = arg;
+    }
+
+    /**
+     * @return the author of the videoGame
+     */
+    public int getNumberOfPlayers() {
+	return this.numberOfPlayers;
+    }
+
+    public String toString() {
+	StringBuilder sb = new StringBuilder();
+	sb.append("VideoGame: " + getTitle() + "\n");
+	sb.append("Author: " + getAuthor() + "\n");
+	sb.append("Propietary: " + getPropietary() + "\n");
+	sb.append("For the platform: " + getPlatform() + "\n");
+	sb.append("Number of Players: " + getNumberOfPlayers() + "\n");
+	if (getOwn()) {
+	    sb.append("You own it");
+	} else {
+	    sb.append("You do not own it");
+	}
+	sb.append("Comment: " + getComment() + "\n");
+	return sb.toString();
+    }
+
+    private Platform getPlatform() {
+	return this.platform;
+    }
+
+    public String getResponsable() {
+	return this.getAuthor();
+    }
+    @Override
+    /**
+     * @return Devuelve el precio del VideoGamecon tasa de 0.10
+     */
+    public double getPrice() {
+	return this.price+(this.price*0.10);
+    }
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	result = prime * result + Objects.hash(author, numberOfPlayers, platform, propietary);
+	return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (!super.equals(obj))
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	VideoGame other = (VideoGame) obj;
+	return Objects.equals(author, other.author) && numberOfPlayers == other.numberOfPlayers
+		&& platform == other.platform && Objects.equals(propietary, other.propietary);
+    }
+
+}

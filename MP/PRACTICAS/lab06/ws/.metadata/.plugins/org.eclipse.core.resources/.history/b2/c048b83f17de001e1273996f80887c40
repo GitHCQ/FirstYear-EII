@@ -1,0 +1,9 @@
+package uo.mp.lab06.greenhouse.actuators.doors;
+
+public enum LevelOfWater {
+	OFF,
+	LOW,
+	MEDIUM,
+	HIGH,
+
+}

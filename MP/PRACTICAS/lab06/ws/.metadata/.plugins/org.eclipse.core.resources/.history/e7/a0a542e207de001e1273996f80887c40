@@ -1,0 +1,24 @@
+package uo.mp.lab06.greenhouse.sensors;
+
+import uo.mp.lab06.greenhouse.controllers.devicescanner.Checkable;
+
+public class HumiditySensor implements Checkable{
+	private int id;
+	public HumiditySensor(int id) {
+		this.id=id;
+	}
+
+	
+	
+	
+	
+	
+	@Override
+	public boolean check() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
+
+}

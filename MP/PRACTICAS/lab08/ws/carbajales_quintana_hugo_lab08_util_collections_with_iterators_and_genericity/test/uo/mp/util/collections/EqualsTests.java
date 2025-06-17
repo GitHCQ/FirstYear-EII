@@ -1,0 +1,148 @@
+package uo.mp.util.collections;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.util.stream.Stream;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+
+import uo.mp.util.collections.impl.ArrayList;
+import uo.mp.util.collections.impl.LinkedList;
+
+/*
+ * SCENARIOS
+ * 	1 Dos listas vacías de tipo ArrayList son iguales
+ *  2 Dos listas vacías de tipo LinkedList son iguales
+ * 	3 Dos listas vacías de ambos tipos son iguales
+ *  4 Dos listas de tipo ArrayList con los mismos elementos en la misma posición son iguales
+ *  5 Dos listas de tipo LinkedList con los mismos elementos en la misma posición son iguales
+ *  6 Dos listas de ambos tipos con los mismsos elementos en la misa posición son iguales
+ *  7 Dos listas de tipo ArrayList con los mismos elementos en diferente posición no son iguales
+ *  8 Dos listas de tipo LinkedList con los mismos elementos endiferentes posiciones no sn iguales
+ *  9 Dos listas de ambos tipos con los mismos elementos en diferentes posiciones no son iguales
+ *  10 Dos listas de tipo ArrayList con diferentes elementos no son iguales
+ *  11 Dos listas de tipo LinkedList con diferentes elementos no son iguales
+ *  12 Dos listas de ambos tipos con diferentes elementos no son iguales
+ *  
+ *  
+ * 	
+ */
+public class EqualsTests {
+	
+
+	private static Stream<Arguments> create2ListsSameType() {
+	    return Stream.of(
+	    	 	Arguments.of(new ArrayList<Object>(), new ArrayList<Object>()),
+	    		Arguments.of(new LinkedList<Object>(), new LinkedList<Object>())
+	    );
+	}
+	
+	private static Stream<Arguments> create2ListsDifferentType() {
+	    return Stream.of(
+	    		Arguments.of(new ArrayList<Object>(), new LinkedList<Object>()),
+	    		Arguments.of(new LinkedList<Object>(), new ArrayList<Object>())
+	    );
+	}
+	
+	@ParameterizedTest@MethodSource("create2ListsSameType")
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	public void sameArrayListTypeEmtpy(List<?> list1, List<?> list2) {
+		fail();
+
+	}
+	
+
+	@ParameterizedTest@MethodSource("create2ListsSameType")
+	/**
+	 * GIVEN: dos listas de tipo LinkedList vacías
+	 * WHEN:  llama al equals
+	 * THEN:  comprueba que son iguales
+	 */
+	public void sameLinkedListTypeEmtpy(List<?> list1, List<?> list2) {
+		assertTrue(list1.equals(list2));
+	}
+	@ParameterizedTest@MethodSource("create2ListsDifferentType")
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	public void bothEmtpy(List<?> list1, List<?> list2) {
+		fail();
+
+	}
+
+	@SuppressWarnings("unlikely-arg-type")
+	@ParameterizedTest@MethodSource("create2ListsSameType")
+	/**
+	 * GIVEN: two equal LinkedLists same elements same possition
+	 * WHEN:   equals() is invoked
+	 * THEN: return true
+	 */
+	public void sameItemsSameType(LinkedList<String> list1, LinkedList<String> list2) {
+	    String s="testing";
+		list1.add(0,s);
+	    
+	    
+	    list2.add(0,s);
+	    
+	    
+	    assertTrue(list1.equals(list2));
+	    assertTrue(list2.equals(list1));
+	}
+
+	@ParameterizedTest@MethodSource("create2ListsSameType")
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	public void sameTypeSameItemsDifferentOrder(List<?> list1, List<?> list2) {
+		
+		fail();
+	}
+
+	
+	@ParameterizedTest@MethodSource("create2ListsDifferentType")
+
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	public void sameTypeDifferentItems(List<?> list1, List<?> list2) {
+		fail();
+	}
+
+
+	@ParameterizedTest@MethodSource("create2ListsDifferentType")
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	public void arrayListLinkedListSameItems(List<?> list1, List<?> list2) {
+		fail();
+	
+	}
+
+	@ParameterizedTest@MethodSource("create2ListsDifferentType")
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	public void arrayListLinkedListDifferentItems(List<?> list1, List<?> list2) {
+		fail();
+
+	}
+
+}

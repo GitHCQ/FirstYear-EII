@@ -1,0 +1,8 @@
+package uo.mp.lab06.greenhouse.controllers;
+
+public class HumidityControler {
+	public static double MIN_HUMIDITY=40;
+	public static double MAX_HUMIDITY=60;
+	
+
+}

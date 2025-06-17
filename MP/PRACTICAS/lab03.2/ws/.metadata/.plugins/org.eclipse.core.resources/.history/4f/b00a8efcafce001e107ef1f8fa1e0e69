@@ -1,0 +1,44 @@
+package uo.mp.lab03.SocialApp.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab03.SocialApp.model.Image;
+import uo.mp.lab03.SocialApp.model.Item;
+import uo.mp.lab03.SocialApp.model.TextMessage;
+
+class addPostTest {
+	private Item image;
+	private Item textMessage;
+	private Item item;
+	private String user;
+	private int likes;
+	private ArrayList<String> comments;
+	private String fileName;
+	private String message;
+	private String caption;
+	private SocialNetwork socialNetwork;
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeEach
+	void setUp() throws Exception{
+		user="Hugo";
+		likes=0;
+		comments=new ArrayList<String>();
+		fileName="Marbella.jpg";
+		caption="Enjoying";
+		image=new Image(user, fileName, caption);
+		textMessage=new TextMessage(user, message);
+		
+	}
+	
+
+	
+	
+
+}

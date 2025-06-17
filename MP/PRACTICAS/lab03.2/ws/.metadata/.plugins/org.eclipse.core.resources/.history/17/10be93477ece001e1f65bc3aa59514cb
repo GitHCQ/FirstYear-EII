@@ -1,0 +1,9 @@
+package uo.mp.lab03.SocialApp.ui;
+
+import uo.mp.lab03.SocialApp.service.SocialNetwork;
+
+public class NetworkApp {
+	public void SimulateClient() {
+		SocialNetwork social=new SocialNetwork();
+	}
+}

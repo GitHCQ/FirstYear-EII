@@ -1,0 +1,77 @@
+/**
+ * 
+ */
+package uo.mp.lab04.dome.service;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab04.dome.model.Cd;
+import uo.mp.lab04.dome.model.Dvd;
+import uo.mp.lab04.dome.model.Item;
+
+class MediaLibrarySearchTest {
+    /*
+     * Escenarios:
+     * Caso 1: Buscar dvd en lista con dos items
+     * Caso 2: El parametro Item introducido es null
+     * Caso 3: No se encuentra el parametro introducido y se devuelve null.
+     */
+    private Item aCD;
+    private Item Dvd;
+    private String theTitle;
+    private String theArtist;
+    private String theDirector;
+    private int theTime;
+    private Item aCDEquals;
+    private int theTracks;
+    private MediaLibrery ml;
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeEach
+    void setUp() throws Exception {
+	theTitle = "Come Together";
+	theArtist = "Beatles";
+	theTime = 70;
+	theTracks = 4;
+	theDirector = "Tarantino";
+	aCD = new Cd(theTitle, theArtist, theTracks, theTime);
+	Dvd = new Dvd(theTitle, theDirector, theTime);
+	aCDEquals = new Cd(theTitle, theArtist, theTracks, theTime);
+	ml = new MediaLibrery();
+
+    }
+
+    @Test
+    void searchDvdInListWithTwoItems() {
+	ml.add(Dvd);
+	ml.add(new Dvd("Cars2", "Hugo", 123));
+	ArrayList<Item> itemsResult = ml.getItems();
+	assertEquals(2, itemsResult.size());
+	assertTrue(itemsResult.contains(Dvd));
+	assertEquals(Dvd, ml.search(Dvd));
+    }
+
+    @Test
+    void searchItemButParamIsNull() {
+	ml.add(Dvd);
+	ml.add(new Dvd("Cars2", "Hugo", 123));
+	ArrayList<Item> itemsResult = ml.getItems();
+	assertEquals(2, itemsResult.size());
+	assertTrue(itemsResult.contains(Dvd));
+	assertNull(ml.search(null));
+    }
+
+    @Test
+    void searchItemButItemIsNotInList() {
+	assertEquals(aCD,ml.search((cdEqual));
+    }
+}

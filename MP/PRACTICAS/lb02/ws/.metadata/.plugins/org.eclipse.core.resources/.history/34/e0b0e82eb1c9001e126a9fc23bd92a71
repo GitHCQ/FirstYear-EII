@@ -1,0 +1,14 @@
+package uo.mp.lab02.game.model;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Game2048MoveDownTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

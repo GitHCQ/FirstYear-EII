@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="java.util.zip.GZIPInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Newspaper"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Magazine"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Magazine.Frequency"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Publication"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Order"/>
+    <fullyQualifiedTypeName name="uo.mp.util.check.ArgumentChecks"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.service.comparator.byQuantityAndNameComparator"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+</qualifiedTypeNameHistroy>

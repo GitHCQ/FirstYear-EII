@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.lab05.shapes.Rectangle"/>
+    <fullyQualifiedTypeName name="uo.mp.lab05.drawing.software.Canvas"/>
+    <fullyQualifiedTypeName name="uo.mp.lab05.shapes.Circle"/>
+    <fullyQualifiedTypeName name="java.io.PrintStream"/>
+    <fullyQualifiedTypeName name="uo.mp.lab05.drawing.interfacerepository.Drawable"/>
+    <fullyQualifiedTypeName name="uo.mp.lab05.shapes.Triangle"/>
+</qualifiedTypeNameHistroy>

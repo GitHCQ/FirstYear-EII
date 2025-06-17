@@ -1,0 +1,131 @@
+package uo.mp.util.collections.impl;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ArrayList extends AbstractList {
+    Object[] elements;
+
+    public ArrayList() {
+        super();
+        numberOfElements = 0;
+        elements = new Object[20];
+    }
+
+    @Override
+    public void clear() {
+        numberOfElements = 0;
+        elements = new Object[20];
+    }
+
+    @Override
+    public Object get(int index) {
+        checkIndex(index);
+        return elements[index];
+    }
+
+    @Override
+    public Object set(int index, Object element) {
+        checkIndex(index);
+        Object oldElement = elements[index];
+        elements[index] = element;
+        return oldElement;
+    }
+
+    @Override
+    public void add(int index, Object element) {
+        if (index < 0 || index > size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        if (size() == elements.length) {
+            resize();
+        }
+        // Shift elements to the right to make space for the new element
+        for (int i = size(); i > index; i--) {
+            elements[i] = elements[i - 1];
+        }
+        elements[index] = element;
+        numberOfElements++;
+    }
+
+    @Override
+    public Object remove(int index) {
+        checkIndex(index);
+        Object removedElement = elements[index];
+        // Shift elements to the left to fill the gap caused by removal
+        for (int i = index; i < size() - 1; i++) {
+            elements[i] = elements[i + 1];
+        }
+        elements[size() - 1] = null; // Remove reference to the last element
+        numberOfElements--;
+        return removedElement;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        for (int i = 0; i < size(); i++) {
+            if (elements[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public int size() {
+        return numberOfElements;
+    }
+
+    @Override
+    public Iterator<Object> iterator() {
+        return new ArrayListIterator();
+    }
+
+    public class ArrayListIterator implements Iterator<Object> {
+        int index;
+        Object lastReturned;
+
+        private ArrayListIterator() {
+            index = 0;
+            lastReturned = null;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index < size();
+        }
+
+        @Override
+        public Object next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException("No hay elemento siguiente");
+            }
+            lastReturned = elements[index];
+            index++;
+            return lastReturned;
+        }
+
+        @Override
+        public void remove() {
+            if (lastReturned == null) {
+                throw new IllegalStateException("No podria ser eliminado el elemento");
+            }
+            ArrayList.this.remove(index - 1);
+            index--;
+            lastReturned = null;
+        }
+    }
+
+    // Método auxiliar para redimensionar el arreglo si es necesario
+    private void resize() {
+        Object[] newElements = new Object[elements.length * 2];
+        System.arraycopy(elements, 0, newElements, 0, elements.length);
+        elements = newElements;
+    }
+    private void checkIndex(int index) {
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+    }
+
+}

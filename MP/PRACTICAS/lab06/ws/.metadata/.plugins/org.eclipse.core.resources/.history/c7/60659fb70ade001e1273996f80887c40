@@ -1,0 +1,41 @@
+package uo.mp.lab06.greenhouse.actuators.doors;
+
+import uo.mp.lab06.greenhouse.controllers.devicescanner.Checkable;
+
+public class Irriegator implements Checkable {
+	private int id;
+	private LevelOfWater systemOfIrrigation=LevelOfWater.OFF;
+	public Irriegator(int id) {
+		this.id=id;
+	}
+	/**
+	 * Cambia el valor del sistema de regadio.
+	 * @param newSystem Nuevo sistema de regadio que se va a introducir
+	 * @return el sistema de regadio utilizado.
+	 */
+	public String changeSystemOfIrrigation(LevelOfWater newSystem) {
+		if(!systemOfIrrigation.equals(newSystem)) {
+			LevelOfWater aux=systemOfIrrigation;
+			this.systemOfIrrigation=newSystem;
+			return "Irrigator system is " +aux+ " and is set to "+newSystem; 
+
+		}
+		else {
+			return "Irrigator system is"+systemOfIrrigation;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	@Override
+	public boolean check() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+
+}

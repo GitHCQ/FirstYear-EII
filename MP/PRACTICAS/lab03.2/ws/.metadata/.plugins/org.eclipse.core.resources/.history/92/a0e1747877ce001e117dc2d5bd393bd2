@@ -1,0 +1,62 @@
+package uo.mp.lab03.SocialApp.model;
+
+import java.util.ArrayList;
+
+public class Item {
+
+	private String user;
+	private int likes;
+	private ArrayList<String> comments;
+
+	public Item(String user) {
+		if (user == null || user.isEmpty() {
+            throw new IllegalArgumentException("User and message cannot be null or empty");
+        }
+		this.user=user;
+		this.likes=0;
+		this.comments=new ArrayList<String>();
+	}
+
+	/**
+	 * @return the user
+	 */
+	private String getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	private void setUser(String user) {
+		this.user = user;
+	}
+
+	/**
+	 * @return the likes
+	 */
+	private int getLikes() {
+		return likes;
+	}
+
+	/**
+	 * @param likes the likes to set
+	 */
+	private void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+	/**
+	 * @return the comments
+	 */
+	private ArrayList<String> getComments() {
+		return comments;
+	}
+
+	/**
+	 * @param comments the comments to set
+	 */
+	private void setComments(ArrayList<String> comments) {
+		this.comments = comments;
+	}
+
+}

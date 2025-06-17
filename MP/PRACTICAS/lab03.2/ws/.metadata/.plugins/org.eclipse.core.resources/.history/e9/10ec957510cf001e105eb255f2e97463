@@ -1,0 +1,88 @@
+package uo.mp.lab03.SocialApp.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab03.SocialApp.model.Image;
+import uo.mp.lab03.SocialApp.model.Item;
+import uo.mp.lab03.SocialApp.model.TextMessage;
+
+class FindPostByUserTest {
+	private Item image;
+	private Item textMessage;
+	private String user;
+	private String fileName;
+	private String message;
+	private String caption;
+	private SocialNetwork socialNetwork;
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeEach
+	void setUp() throws Exception{
+		user="Hugo";
+		fileName="Marbella.jpg";
+		caption="Enjoying";
+		message="Hello!";
+		image=new Image(user, fileName, caption);
+		textMessage=new TextMessage(user, message);
+		socialNetwork=new SocialNetwork();
+	}
+	/*
+	 * Casos:
+	 * 1.El nombre introducido coincide con algun usuario que tiene una publicacion en la lista
+	 * 2.El nombre introducido coincide con algun usuario que tiene dos publicaciones en la lista
+	 * 3.El nombre introducido no coincide con algun usuario que tiene una publicacion en la lista
+	 */
+	@Test
+	public void userHasPost() {
+		socialNetwork.addPost(image);
+		socialNetwork.addPost(new Image("Pepe",fileName, caption));
+		ArrayList<Item>itemsResult=socialNetwork.getPosts();
+		assertEquals(2,itemsResult.size());
+		
+		ArrayList<Item>postUser=new ArrayList<Item>();
+		postUser.add(image);
+		assertTrue(postUser.contains(image));
+		assertEquals(1,postUser.size());
+		assertTrue(postUser.contains(image));
+		
+		assertEquals(postUser,socialNetwork.findPostByUser(user));
+	}
+	@Test
+	public void userHasTwoPost() {
+		socialNetwork.addPost(textMessage);
+		Image image2 = new Image(user,fileName, "Here!");
+		socialNetwork.addPost(image2);
+		socialNetwork.addPost(new Image("Pepe",fileName, caption));
+		ArrayList<Item>itemsResult=socialNetwork.getPosts();
+		assertEquals(3,itemsResult.size());
+		
+		ArrayList<Item>postUser=new ArrayList<Item>();
+		postUser.add(image);
+		postUser.add(image2);
+		assertTrue(postUser.contains(image));
+		assertTrue(postUser.contains(image2));
+		assertEquals(2,postUser.size());
+		
+		assertEquals(postUser,socialNetwork.findPostByUser(user));
+	}
+	@Test
+	public void userNoHasPost() {
+		socialNetwork.addPost(image);
+		Image image2 = new Image(user,fileName, "Here!");
+		socialNetwork.addPost(image2);
+		socialNetwork.addPost(new Image("Pepe",fileName, caption));
+		ArrayList<Item>itemsResult=socialNetwork.getPosts();
+		assertEquals(3,itemsResult.size());
+		
+		ArrayList<Item>postUser=new ArrayList<Item>();
+		assertEquals(postUser,socialNetwork.findPostByUser("Pedro"));
+	}
+	
+}
+

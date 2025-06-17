@@ -1,0 +1,34 @@
+package uo.mp.lab03.SocialApp.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab03.SocialApp.model.Image;
+import uo.mp.lab03.SocialApp.model.Item;
+import uo.mp.lab03.SocialApp.model.TextMessage;
+
+class findPostByUser {
+	private Item image;
+	private Item textMessage;
+	private String user;
+	private String fileName;
+	private String message;
+	private String caption;
+	private SocialNetwork socialNetwork;
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeEach
+	void setUp() throws Exception{
+		user="Hugo";
+		fileName="Marbella.jpg";
+		caption="Enjoying";
+		message="Hello!";
+		image=new Image(user, fileName, caption);
+		textMessage=new TextMessage(user, message);
+		socialNetwork=new SocialNetwork();
+	}

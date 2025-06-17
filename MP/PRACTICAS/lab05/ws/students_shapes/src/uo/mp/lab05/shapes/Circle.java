@@ -1,0 +1,44 @@
+/**
+ * 
+ */
+package uo.mp.lab05.shapes;
+
+import java.io.PrintStream;
+
+import uo.mp.lab05.drawing.interfacerepository.Drawable;
+
+/**
+ * @author usuario
+ *
+ */
+public class Circle extends Shape implements Drawable{ 
+	private int radius;
+	
+	
+	/**
+	 * @param x
+	 * @param y
+	 * @param radius
+	 * @param colour
+	 */
+	public Circle(int x, int y, int radius, Colour colour) {
+		super(x,y,colour);
+		this.radius = radius;
+	}
+
+
+	/**
+	 * @return the radius
+	 */
+	private int getRadius() {
+		return radius;
+	}
+
+
+	@Override
+	public void draw(PrintStream out) {
+			String output = String.format("Drawing a %s Circle: (%d, %d) - radius: %d ", 
+			this.getColour(),getX(),this.getY(),this.getRadius());
+			out.println(output);
+		}
+	}

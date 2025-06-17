@@ -1,0 +1,80 @@
+/**
+ * 
+ */
+package uo.mp.lab05.shapes;
+
+import java.io.PrintStream;
+
+import uo.mp.lab05.drawing.interfacerepository.Drawable;
+import uo.mp.util.check.ArgumentChecks;
+
+/**
+ * @author usuario
+ *
+ */
+public class Circle implements Drawable{ 
+	private int x;
+	private int y;
+	private int radius;
+	private Colour colour;
+	
+	
+	/**
+	 * @param x
+	 * @param y
+	 * @param radius
+	 * @param colour
+	 */
+	public Circle(int x, int y, int radius, Colour colour) {
+		ArgumentChecks.isTrue(x >= 0, "Illegal argument, must be x >= 0");
+		ArgumentChecks.isTrue(y >= 0,  "Illegal argument, must be y >= 0");
+		ArgumentChecks.isTrue(radius >= 0,  "Illegal argument, must be with >= 0");
+		ArgumentChecks.isTrue(colour != null, "Illegal argument, must be colour != null");
+
+		this.x = x;
+		this.y = y;
+		this.radius = radius;
+		this.colour = colour;
+	}
+
+
+	/**
+	 * @return the x
+	 */
+	private int getX() {
+		return x;
+	}
+
+
+	/**
+	 * @return the y
+	 */
+	private int getY() {
+		return y;
+	}
+
+
+	/**
+	 * @return the radius
+	 */
+	private int getRadius() {
+		return radius;
+	}
+
+
+	/**
+	 * @return the colour
+	 */
+	private Colour getColour() {
+		return colour;
+	}
+
+
+	@Override
+	public void draw(PrintStream out) {
+			String output = String.format("Drawing a %s Rectangle: (%d, %d) - width: %d - height: %d", 
+			this.getColour(),getX(),this.getY(),this.getRadius();
+			out.println(output);
+		}
+	}
+}

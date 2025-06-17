@@ -1,0 +1,34 @@
+package uo.mp.lab06.greenhouse.controllers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import uo.mp.lab06.greenhouse.actuators.doors.Irriegator;
+import uo.mp.lab06.greenhouse.sensors.HumiditySensor;
+
+public class HumidityControler {
+	public static double MIN_HUMIDITY=40;
+	public static double MAX_HUMIDITY=60;
+	private List<Irriegator>irriegators=new ArrayList<Irriegator>();
+	private List<HumiditySensor>humiditySensors=new ArrayList<HumiditySensor>();
+	
+	/**
+	 * Añade sistemas de regadio a la lista
+	 * @param irrigeator sistema de regadio
+	 */
+	public void add(Irriegator irrigeator) {
+		this.irriegators.add(irrigeator);
+	}
+	
+	/**
+	 * Añade sistemas de regadio a la lista
+	 * @param irrigeator sistema de regadio
+	 */
+	public void add(HumiditySensor humiditySensor) {
+		this.humiditySensors.add(humiditySensor);
+	}
+	
+	
+	
+
+}

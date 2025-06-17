@@ -1,0 +1,34 @@
+package uo.mp.lab02.game.model;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import uo.mp.lab02.game.model.Game2048;
+import uo.mp.lab02.game.model.util.ForTesting;
+
+public class Game2048MoveRight {
+	// Escenarios:
+			// caso 1: matriz semifull 
+			// caso 2: matriz con 2 valores distintos seguidos
+		    // caso 3: matriz vacia
+
+			@Test
+			public void SumSemifull() {
+			
+			 // caso 1: matriz semifull 
+			Game2048 game = new Game2048(ForTesting.SEMIFULL21); //{{0,2,2},{0,2,2},{0,2,2}}
+			int[][] nueva = {{0, 0, 4}, {0, 0, 4}, {0, 0, 4}};
+			game.moveRight();
+			assertArrayEquals(nueva, game.getBoard());
+		  }
+			@Test
+			public void TwoValorsDistintos() {
+			
+			 // caso 2:Dos valores distintos seguidos
+			Game2048 game = new Game2048(ForTesting.TWOVALORSDISTINTOS_SEGUIDOS); //{{0,2,8},{0,2,16},{0,2,1024}}
+			int[][] nueva = {{0, 0, 16}, {0, 0, 8}, {0, 0, 128}};
+			game.moveRight();
+			assertArrayEquals(nueva, game.getBoard());
+		  }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Borrowable.java&apos; to &apos;carbajales_quintana_hugo_lab04_dome/src/uo.mp.lab05.dome.interfazrepository&apos;&#x0D;&#x0A;- Original project: &apos;carbajales_quintana_hugo_lab04_dome&apos;&#x0D;&#x0A;- Destination element: &apos;carbajales_quintana_hugo_lab04_dome/src/uo.mp.lab05.dome.interfazrepository&apos;&#x0D;&#x0A;- Original element: &apos;uo.mp.lab04.dome.model.Borrowable.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;uo.mp.lab05.dome.interfazrepository" element1="/src&lt;uo.mp.lab04.dome.model{Borrowable.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1709735801449" units="1" version="1.0"/>
+</session>

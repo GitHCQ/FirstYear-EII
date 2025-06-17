@@ -1,0 +1,42 @@
+package uo.mp.lab05.shapes;
+
+import uo.mp.lab05.drawing.interfacerepository.Drawable;
+
+public class Shape {
+
+	/**
+	 * The x coordinate of the upper-left corner.
+	 */
+	protected int x;
+	/**
+	 * The y coordinate of the upper-left corner.
+	 */
+	protected int y;
+	protected Colour colour;
+
+	public Shape() {
+		super();
+	}
+
+	/**
+	 * @return the x
+	 */
+	protected int getX() {
+		return x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	protected int getY() {
+		return y;
+	}
+
+	/**
+	 * @return the colour
+	 */
+	public Colour getColour() {
+		return colour;
+	}
+
+}

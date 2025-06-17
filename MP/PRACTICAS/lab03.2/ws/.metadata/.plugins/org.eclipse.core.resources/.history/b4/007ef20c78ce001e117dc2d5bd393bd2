@@ -1,0 +1,48 @@
+package uo.mp.lab03.SocialApp.model;
+
+import java.util.ArrayList;
+
+public class Item {
+
+	private String user;
+	private int likes;
+	private ArrayList<String> comments;
+
+	public Item(String user) {
+		if (user == null || user.isEmpty()){
+            throw new IllegalArgumentException("User and message cannot be null or empty");
+        }
+		this.user=user;
+		this.likes=0;
+		this.comments=new ArrayList<String>();
+	}
+
+	/*
+	 *Añade un like a la publicacion
+	 */
+    public void addLike() {
+        this.likes++;
+    }
+    /*
+     * @return Devuelve los likes de una publicacion
+     */
+    public int getLikes() {
+    	return this.likes;
+    }
+    /*
+     * Añade un comentario a la lista de comentarios de la publicacion
+     */
+    public void addComment(String comment) {
+        if (comment != null && !comment.isEmpty()) {
+            this.comments.add(comment);
+        } else {
+            throw new IllegalArgumentException("Comment cannot be null or empty");
+        }
+    }
+    /*
+     * Devuelve la lista de comentarios de la publicacion
+     */
+    public ArrayList<String>getComments(){
+    	return this.comments;
+    }
+}

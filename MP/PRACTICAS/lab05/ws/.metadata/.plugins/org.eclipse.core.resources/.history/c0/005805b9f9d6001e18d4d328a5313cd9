@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package uo.mp.lab05.drawing.interfacerepository;
+
+/**
+ * @author tete morente
+ *
+ */
+public interface Drawable {
+	public void draw();
+}

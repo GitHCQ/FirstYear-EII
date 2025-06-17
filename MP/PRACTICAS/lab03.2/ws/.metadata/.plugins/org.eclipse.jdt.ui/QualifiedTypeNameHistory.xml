@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.io.PrintStream"/>
+    <fullyQualifiedTypeName name="java.awt.Image"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.SocialApp.ui.NetworkApp"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.SocialApp.model.Item"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.SocialApp.model.Image"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.SocialApp.model.TextMessage"/>
+</qualifiedTypeNameHistroy>

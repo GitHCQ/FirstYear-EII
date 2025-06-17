@@ -1,0 +1,50 @@
+/**
+ * 
+ */
+package uo.mp.lab03.SocialApp.model;
+
+import java.util.ArrayList;
+
+/**
+ * @author usuario
+ *
+ */
+public class TextMessage extends Item {
+	private int likes;
+	private String message;
+	
+	
+	public TextMessage(String user,String message) {
+		super(user);
+		if (message == null || message.isEmpty()) {
+            throw new IllegalArgumentException("Message cannot be null or empty");
+        }
+		setMessage(message);
+	}
+
+
+	/**
+	 * @return the message
+	 */
+	private String getMessage() {
+		return message;
+	}
+
+
+	/**
+	 * @param message the message to set
+	 */
+	private void setMessage(String message) {
+		this.message = message;
+	}
+	
+    public String toString() {
+    	StringBuilder sb=new StringBuilder();
+    	sb.append("TEXT MESSAGE Posted by: ");
+    	sb.append(getUserName()+", Content: ");
+    	sb.append(getMessage());
+    	
+    	return sb.toString();
+    	
+
+    }}

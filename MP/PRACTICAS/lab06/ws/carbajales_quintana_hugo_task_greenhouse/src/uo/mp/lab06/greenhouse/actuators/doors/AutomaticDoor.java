@@ -1,0 +1,32 @@
+package uo.mp.lab06.greenhouse.actuators.doors;
+
+import java.util.Random;
+
+import uo.mp.lab06.greenhouse.controllers.devicescanner.Checkable;
+
+public class AutomaticDoor extends Door implements Checkable, VentilationDevice {
+
+	public AutomaticDoor(int id) {
+		super(id);
+	}
+	@Override
+	public String open(){
+		if ( ! opened) {			
+			opened = true;
+			return "  Please, open the automatic door " + id;
+		}
+		return "";
+	}
+
+	public String close(){
+		if ( opened) {
+			opened = false;
+			return "  Please, close the automatic door" + id;
+		}
+		return "";
+	}	
+	@Override
+	public boolean check() {
+		return new Random().nextDouble()>=0.05;
+	}
+}

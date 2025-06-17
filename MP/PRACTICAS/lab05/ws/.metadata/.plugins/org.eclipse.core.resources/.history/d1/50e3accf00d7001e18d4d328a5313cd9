@@ -1,0 +1,68 @@
+/**
+ * 
+ */
+package uo.mp.lab05.picture;
+
+import java.io.PrintStream;
+
+/**
+ * @author usuario
+ *
+ */
+public class Picture {
+	private int x;
+	private int y;
+	private int width;
+	private int height;
+	private String filename;
+	/**
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param filename
+	 */
+	public Picture(int x, int y, int width, int height, String filename) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		this.filename = filename;
+	}
+	/**
+	 * @return the x
+	 */
+	private int getX() {
+		return x;
+	}
+	/**
+	 * @return the y
+	 */
+	private int getY() {
+		return y;
+	}
+	/**
+	 * @return the width
+	 */
+	private int getWidth() {
+		return width;
+	}
+	/**
+	 * @return the height
+	 */
+	private int getHeight() {
+		return height;
+	}
+	/**
+	 * @return the filename
+	 */
+	private String getFilename() {
+		return filename;
+	}
+	public void draw(PrintStream out) {
+			String output = String.format("Drawing a %s Picture: (%d, %d) - width: %d - height: %d", 
+			this.getFilename(),getX(),this.getY(),this.getWidth(), this.getHeight());
+			out.println(output);
+		}
+	}

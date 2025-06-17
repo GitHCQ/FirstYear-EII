@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package uo.mp.lab05.shapes;
+
+import java.io.PrintStream;
+
+import uo.mp.lab05.drawing.interfacerepository.Drawable;
+
+/**
+ * @author usuario
+ *
+ */
+public class Circle implements Drawable{ 
+	private int x;
+	private int y;
+	private int radius;
+	private Colour colour;
+	
+	@Override
+	public void draw(PrintStream out) {
+		// TODO Auto-generated method stub
+		
+	}
+}

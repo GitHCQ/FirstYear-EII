@@ -1,0 +1,20 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+/**
+ * 
+ */
+
+/**
+ * @author usuario
+ *
+ */
+class Game2048MoveLeftTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

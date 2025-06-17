@@ -1,0 +1,214 @@
+package uo.mp.util.collections.impl;
+
+import java.util.Iterator;
+
+public class LinkedList<T> extends AbstractList<T> {
+    private Node head;
+
+    private class Node {
+        T element;
+        Node next;
+
+        Node(T element, Node next) {
+            this.element = element;
+            this.next = next;
+        }
+    }
+
+    public LinkedList() {
+        this.numberOfElements = 0;
+        this.head = null;
+    }
+
+    @Override
+    public int size() {
+        return numberOfElements;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        Node current = head;
+        while (current != null) {
+            if (o == null) {
+                if (current.element == null) {
+                    return true;
+                }
+            } else {
+                if (o.equals(current.element)) {
+                    return true;
+                }
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean add(Object element) {
+        add(size(), element);
+        return true;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        Node current = head;
+        Node previous = null;
+        while (current != null) {
+            if (o == null) {
+                if (current.element == null) {
+                    if (previous == null) {
+                        head = current.next;
+                    } else {
+                        previous.next = current.next;
+                    }
+                    numberOfElements--;
+                    return true;
+                }
+            } else {
+                if (o.equals(current.element)) {
+                    if (previous == null) {
+                        head = current.next;
+                    } else {
+                        previous.next = current.next;
+                    }
+                    numberOfElements--;
+                    return true;
+                }
+            }
+            previous = current;
+            current = current.next;
+        }
+        return false;
+    }
+
+    @Override
+    public void clear() {
+        head = null;
+        numberOfElements = 0;
+    }
+
+    @Override
+    public T get(int index) {
+        checkIndex(index);
+        Node node = getNode(index);
+        return node.element;
+    }
+
+    private Node getNode(int index) {
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current;
+    }
+
+    @Override
+    public void add(int index, Object element) {
+        checkIndex(index);
+        if (index == 0) {
+            head = new Node((T) element, head);
+        } else {
+            Node previous = getNode(index - 1);
+            previous.next = new Node((T) element, previous.next);
+        }
+        numberOfElements++;
+    }
+
+    @Override
+    public Object remove(int index) {
+        checkIndex(index);
+        if (index == 0) {
+            Object removedElement = head.element;
+            head = head.next;
+            numberOfElements--;
+            return removedElement;
+        } else {
+            Node previous = getNode(index - 1);
+            Node removedNode = previous.next;
+            previous.next = removedNode.next;
+            numberOfElements--;
+            return removedNode.element;
+        }
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        Node current = head;
+        int index = 0;
+        while (current != null) {
+            if (o == null) {
+                if (current.element == null) {
+                    return index;
+                }
+            } else {
+                if (o.equals(current.element)) {
+                    return index;
+                }
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<T> {
+        Node next;
+        Node lastReturned;
+
+        private LinkedListIterator() {
+            next = head;
+            lastReturned = null;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new IllegalStateException("No hay elemento siguiente");
+            }
+            lastReturned = next;
+            next = next.next;
+            return lastReturned.element;
+        }
+
+        @Override
+        public void remove() {
+            if (lastReturned == null) {
+                throw new IllegalStateException("No es posible eliminar el elemento");
+            }
+            LinkedList.this.remove(lastReturned.element);
+            lastReturned = null;
+        }
+    }
+
+    @Override
+    public T set(int index, T element) {
+        checkIndex(index);
+        Node node = getNode(index);
+        T oldValue = node.element;
+        node.element = element;
+        return oldValue;
+    }
+
+    private void checkIndex(int index) {
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+    }
+
+    }
+

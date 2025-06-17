@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="uo.mp.lab06.greenhouse.actuators.doors.Irriegator"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="uo.mp.lab06.greenhouse.actuators.doors.LevelOfWater"/>
+    <fullyQualifiedTypeName name="uo.mp.lab06.greenhouse.sensors.HumiditySensor"/>
+    <fullyQualifiedTypeName name="uo.mp.greenhouse.actuators.irriegator.Irriegator"/>
+    <fullyQualifiedTypeName name="uo.mp.lab06.greenhouse.controllers.devicescanner.Checkable"/>
+    <fullyQualifiedTypeName name="uo.mp.lab06.greenhouse.actuators.doors.VentilationDevice"/>
+    <fullyQualifiedTypeName name="uo.mp.lab06.greenhouse.controllers.devicescanner.DeviceScanner"/>
+    <fullyQualifiedTypeName name="uo.mp.lab06.greenhouse.actuators.doors.AutomaticDoor"/>
+</qualifiedTypeNameHistroy>

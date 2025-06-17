@@ -1,0 +1,78 @@
+/**
+ * 
+ */
+package uo.mp.lab03.dome.service;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab03.dome.model.Cd;
+import uo.mp.lab03.dome.model.Item;
+
+/**
+ * @author UO300798
+ *
+ */
+class MediaLibreryAddTest {
+    /*
+     * Escenarios:
+     * Caso 1: Añadir null
+     * Caso 2: Añadir cd en libreria con lista vacía
+     * Caso 3: Añadir dvd en librería con lista vacía
+     * Caso 4: Añadir cd en libreria con lista con varios elementos
+     * Caso 5: Añadir dvd en libreria con lista con varios elementos
+     */
+    private Item aCD;
+    private String theTitle;
+    private String theArtist;
+    private int theTime;
+    private int theTracks;
+    private MediaLibrery ml;
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeEach
+    void setUp() throws Exception {
+	theTitle = "Come Together";
+	theArtist = "Beatles";
+	theTime = 70;
+	theTracks = 4;
+	aCD = new Cd(theTitle, theArtist, theTracks, theTime);
+	ml = new MediaLibrery();
+
+    }
+    /**
+     * GIVEN dada una libreria con lista vacía
+     * WHEN se añade un CD
+     * THEN la librería lo añade a la lista
+     */
+    @Test
+    void itemNull() {
+	try {
+	ml.add(null);
+	}catch(RuntimeException e) {
+	    assertEquals(" is an invalid value for the argument.",e.getMessage());
+	}
+	
+    }
+
+    /**
+     * GIVEN dada una libreria con lista vacía
+     * WHEN se añade un CD
+     * THEN la librería lo añade a la lista
+     */
+    @Test
+    void cdEmptyList() {
+	ml.add(aCD);
+	ArrayList<Item> itemsResult = ml.getItems();
+	assertEquals(1, itemsResult.size());
+	assertTrue(itemsResult.contains(aCD));
+    }
+
+}

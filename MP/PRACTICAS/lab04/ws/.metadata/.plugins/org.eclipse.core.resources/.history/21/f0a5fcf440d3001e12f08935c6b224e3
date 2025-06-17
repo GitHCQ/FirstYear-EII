@@ -1,0 +1,114 @@
+package uo.mp.lab04.dome.model;
+
+import java.util.Objects;
+
+import uo.mp.util.check.ArgumentChecks;
+
+public class Dvd extends Item {
+
+    private String director;
+    private int playingTime;
+
+    /**
+     * Creates a new Dvd with default values for gotIt and comment
+     * 
+     * @param theTitle    String for title
+     * @param theDirector String for director
+     * @param time        integer for time
+     */
+    public Dvd(String theTitle, String theDirector, int time, double price) {
+	super(theTitle, price);
+	setDirector(theDirector);
+	setPlayingTime(time);
+    }
+
+    /**
+     * 
+     * @param arg String with the new director
+     * @throws IllegalArgumentException if the argument is null, 0-length or does not contain meaningful characters
+     */
+    private void setDirector(String arg) {
+	ArgumentChecks.isNotNull(arg);
+	ArgumentChecks.isNotEmpty(arg);
+	ArgumentChecks.isNotBlank(arg);
+	this.director = arg;
+    }
+
+    /**
+     * @return the director of the dvd
+     */
+    public String getDirector() {
+	return this.director;
+    }
+
+    /**
+     * 
+     * @param arg integer with the playing time in the CD
+     * @throws IllegalArgumentException if the argument is is lower or equal zero
+     */
+    protected void setPlayingTime(int arg) {
+	ArgumentChecks.isTrue(arg > 0, "Invalid playing time");
+	this.playingTime = arg;
+    }
+
+    /**
+     * @return playing time
+     */
+    public int getPlayingTime() {
+	return this.playingTime;
+    }
+
+    /**
+     * @param out a PrintStream to flush output
+     */
+    public String toString() {
+	StringBuilder sb = new StringBuilder();
+	sb.append("DVD: " + getTitle() + " (" + getPlayingTime() + " mins)" + "\n");
+	sb.append("Director: " + getDirector() + "\n");
+	if (getOwn()) {
+	    sb.append("You own it" + "\n");
+	} else {
+	    sb.append("You do not own it" + "\n");
+	}
+	sb.append("Comment: " + getComment() + "\n");
+	return sb.toString();
+    }
+
+    public String getResponsable() {
+	return this.getDirector();
+    }
+
+    @Override
+    /**
+     * @return Devuelve el precio del DVD sin tasas
+     */
+    public double getPrice() {
+	return this.price;
+    }
+
+    public String getCode() {
+	return this.getTitle()
+	    .substring(0, Math.min(3, getTitle().length()-1));
+    }
+
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = super.hashCode();
+	result = prime * result + Objects.hash(director, playingTime);
+	return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (!super.equals(obj))
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	Dvd other = (Dvd) obj;
+	return Objects.equals(director, other.director) && playingTime == other.playingTime;
+    }
+
+}

@@ -1,0 +1,76 @@
+package uo.mp.lab04.dome.model;
+
+import uo.mp.util.check.ArgumentChecks;
+
+public abstract class VideoGame extends Item {
+    private String author;
+    private int numberOfPlayers;
+    private String propietary;
+
+    public enum Platform {
+	XBOX, PLAYSTATION, NINTENDO
+    }
+
+    public VideoGame(String theTitle, String propietary, String author, Platform plataform, int numberOfPlayers) {
+	super(theTitle);
+	setPropietary(propietary);
+	setAuthor(author);
+	setNumberOfPlayers(numberOfPlayers);
+    }
+
+    /**
+     * 
+     * @param arg String with the new propietary
+     * @throws IllegalArgumentException if the argument is null, 0-length or does not contain meaningful characters
+     */
+    private void setPropietary(String arg) {
+	ArgumentChecks.isNotNull(arg);
+	ArgumentChecks.isNotEmpty(arg);
+	ArgumentChecks.isNotBlank(arg);
+	this.propietary = arg;
+    }
+
+    /**
+     * @return the propietary of the videoGame
+     */
+    public String getPropietary() {
+	return this.propietary;
+    }
+
+    /**
+     * 
+     * @param arg String with the new author
+     * @throws IllegalArgumentException if the argument is null, 0-length or does not contain meaningful characters
+     */
+    private void setAuthor(String arg) {
+	ArgumentChecks.isNotNull(arg);
+	ArgumentChecks.isNotEmpty(arg);
+	ArgumentChecks.isNotBlank(arg);
+	this.author = arg;
+    }
+
+    /**
+     * @return the author of the videoGame
+     */
+    public String getAuthor() {
+	return this.author;
+    }
+
+    /**
+     * 
+     * @param arg String with the new author
+     * @throws IllegalArgumentException if the argument is null, 0-length or does not contain meaningful characters
+     */
+    private void setNumberOfPlayers(int arg) {
+	ArgumentChecks.isNotNull(arg);
+	this.numberOfPlayers = arg;
+    }
+
+    /**
+     * @return the author of the videoGame
+     */
+    public int getNumberOfPlayers() {
+	return this.numberOfPlayers;
+    }
+
+}

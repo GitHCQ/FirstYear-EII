@@ -1,0 +1,100 @@
+package uo.mp.util.collections;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.util.stream.Stream;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+
+import uo.mp.util.collections.impl.ArrayList;
+import uo.mp.util.collections.impl.LinkedList;
+
+/*
+ * ESCENARIOS
+ * 	1 Realizar get en una posición cualquiera de una lista no vacía retorna el elemento y la lista perpanece igual
+ * 	2 Intentar realizar get en la posición 0 de una lista vacía, lanza IndexOutOfBoundsException
+ * 	3 Intentar realizar get en la posición -1 de una lista vacía, lanza IndexOutOfBoundsException
+ * 	4 Intentar realizar get en la posición -1 de una lista con elementos, lanza IndexOutOfBoundsException
+ * 	5 Intentar realizar get en la posición size() de una lista con elementos, lanza IndexOutOfBoundsException
+ */
+public class GetTests {
+	
+	public static Stream<Arguments> createLists() {
+		  return Stream.of(
+		      Arguments.of(new ArrayList<Object>()),
+		      Arguments.of(new LinkedList<Object>())
+		  );
+		}
+
+
+	
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	@ParameterizedTest@MethodSource("createLists")
+	public void inList(List<?> list) {
+		fail();
+	}
+
+	/**
+	 * GIVEN: an empty list
+	 * WHEN:   get(0) is invoked 
+	 * THEN: throws an IndexOutOfBounds 
+	 */
+	@ParameterizedTest@MethodSource("createLists")
+	public void emptyList(List<?> list) {
+		try {
+			list.get(0);
+			fail("Shouldn't be able to get anything from position<0");
+		}catch(IndexOutOfBoundsException e){
+			assertEquals("Index out of bounds: "+ 0, e.getMessage());
+			assertEquals(list.size(),0);
+		}
+	}
+	
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	@ParameterizedTest@MethodSource("createLists")
+	public void upper(List<?> list) {
+	    try {
+	        @SuppressWarnings("unused")
+			Object element = list.get(list.size()); // Intenta acceder a la posición size()
+	        fail("No se lanzó IndexOutOfBoundsException");
+	    } catch (IndexOutOfBoundsException e) {
+	        // Se esperaba que se lanzara IndexOutOfBoundsException, la prueba pasa
+	    }
+	}
+
+	/**
+	 * GIVEN: an empty list
+	 * WHEN:  trying to get a value in the position -1 of that very list
+	 * THEN: throws OutOfIndexException
+	 */
+	@ParameterizedTest@MethodSource("createLists")
+	public void emptyMinusOne(List<?> list) {
+		try {
+			list.get(-1);
+			fail("Shouldn't be able to get anything from position<0");
+		}catch(IndexOutOfBoundsException e){
+			assertEquals("Index out of bounds: "+-1, e.getMessage());
+		}
+	}
+	/**
+	 * GIVEN: 
+	 * WHEN:    
+	 * THEN: 
+	 */
+	@ParameterizedTest@MethodSource("createLists")
+	public void lower(List<?> list) {
+		fail();
+	}
+}

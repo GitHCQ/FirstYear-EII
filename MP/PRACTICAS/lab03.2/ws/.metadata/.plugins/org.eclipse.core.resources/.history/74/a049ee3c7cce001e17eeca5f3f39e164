@@ -1,0 +1,32 @@
+package uo.mp.lab03.SocialApp.service;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+import uo.mp.lab03.SocialApp.model.Item;
+
+public class SocialNetwork {
+	private ArrayList<Item> items = new ArrayList<>();
+	/**
+	 * Añade post a la red, salta excepcion si el post es null.
+	 * @param post
+	 */
+	public void addPost(Item post) {
+		if (post == null) {
+            throw new IllegalArgumentException("Post cannot be null");
+        }
+		items.add(post);
+	}
+	/**
+	 * Escribe en el objeto out la información de todos los posts de la red social.
+	 * @param out
+	 */
+	public void listaAllPost(PrintStream out) {
+		for(Item post:items) {
+			out.println(post.toString());
+			
+		}
+		
+	}
+
+}

@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package uo.mp.lab03.SocialApp.model;
+
+import java.util.ArrayList;
+
+/**
+ * @author usuario
+ *
+ */
+public class TextMessage extends Item {
+	private String user;
+	private int likes;
+	private String message;
+	private ArrayList<String>comments;
+	
+	
+	public TextMessage(String user,String message) {
+		setMessage(message);
+	}
+
+
+	/**
+	 * @return the message
+	 */
+	private String getMessage() {
+		return message;
+	}
+
+
+	/**
+	 * @param message the message to set
+	 */
+	private void setMessage(String message) {
+		this.message = message;
+	}
+	
+
+}

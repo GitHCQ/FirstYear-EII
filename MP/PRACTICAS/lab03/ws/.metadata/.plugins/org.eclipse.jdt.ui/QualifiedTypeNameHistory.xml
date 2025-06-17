@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.dome.model.Item"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.dome.model.Cd"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.dome.model.VideoGame"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.dome.model.Dvd"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.dome.service.MediaLibrery"/>
+    <fullyQualifiedTypeName name="uo.mp.lab03.dome.model.VideoGame.Platform"/>
+</qualifiedTypeNameHistroy>

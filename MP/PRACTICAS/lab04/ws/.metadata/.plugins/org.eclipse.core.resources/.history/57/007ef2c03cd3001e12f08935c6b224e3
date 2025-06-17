@@ -1,0 +1,60 @@
+package uo.mp.lab04.dome.service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab04.dome.model.Cd;
+
+class MediaLibraryGetTotalPriceTest {
+
+    /*
+     * Escenarios:
+     * Caso 1: Precio mayor que 1000
+     * Caso 2: Precio menor que 0
+     * Caso 3: Suma de precio de Cd y Dvd
+     * Caso 4: Suma de precio de Cd,Dvd y VideoJuego.
+     */
+    private String theTitle;
+    private String theArtist;
+    private String theDirector;
+    private int theTime;
+    private int theTracks;
+    private MediaLibrery ml;
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeEach
+    void setUp() throws Exception {
+	theTitle = "Come Together";
+	theArtist = "Beatles";
+	theTime = 70;
+	theTracks = 4;
+	theDirector = "Tarantino";
+	ml = new MediaLibrery();
+
+    }
+
+    @Test
+    public void priceUpThan1000() {
+	try {
+	    ml.add(new Cd(theTitle, theArtist, theTracks, theTime, 1001));
+	    fail("El precio no puede ser mayor que 1000");
+	} catch (IllegalArgumentException e) {
+	    assertEquals("El precio debe positivo y menor que mil", e.getMessage());
+	}
+    }
+
+    @Test
+    public void priceLowThan0() {
+	try {
+	    ml.add(new Cd(theTitle, theArtist, theTracks, theTime, -1));
+	    fail("El precio no puede ser menor que 0");
+	} catch (IllegalArgumentException e) {
+	    assertEquals("El precio debe positivo y menor que mil", e.getMessage());
+	}
+    }
+}

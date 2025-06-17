@@ -1,0 +1,83 @@
+package uo.mp.lab06.greenhouse.controllers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import uo.mp.lab06.greenhouse.actuators.doors.Irriegator;
+import uo.mp.lab06.greenhouse.actuators.doors.LevelOfWater;
+import uo.mp.lab06.greenhouse.sensors.HumiditySensor;
+
+public class HumidityControler {
+	public static double MIN_HUMIDITY=40;
+	public static double MAX_HUMIDITY=60;
+	private List<Irriegator>irriegators=new ArrayList<Irriegator>();
+	private List<HumiditySensor>humiditySensors=new ArrayList<HumiditySensor>();
+	
+	/**
+	 * Añade sistemas de regadio a la lista
+	 * @param irrigeator sistema de regadio
+	 */
+	public void add(Irriegator irrigeator) {
+		this.irriegators.add(irrigeator);
+	}
+	
+	/**
+	 * Añade sistemas de regadio a la lista
+	 * @param irrigeator sistema de regadio
+	 */
+	public void add(HumiditySensor humiditySensor) {
+		this.humiditySensors.add(humiditySensor);
+	}
+	
+	
+	
+	
+	
+	
+	private List<String>averageHumidityLow(double humidity){
+		List<String>message=new ArrayList<String>();
+		for(Irriegator ir:irriegators) {
+			message.add(actualHumidity(humidity));
+			message.add("It is too dry");
+			message.add(ir.changeSystemOfIrrigation(LevelOfWater.HIGH));
+		}
+		return message;
+	}
+	private List<String> averageHumidityHigh(double humidity) {
+		List<String>message=new ArrayList<String>();
+		for(Irriegator ir:irriegators) {
+			message.add(actualHumidity(humidity));
+			message.add("It is too damp");
+			message.add(ir.changeSystemOfIrrigation(LevelOfWater.OFF));
+		}
+		return message;
+	}
+	
+	/**
+	 * Media de temperatura Ok.
+	 * @return
+	 */
+	private String averageHumidityOk() {
+		return "Humidity is right";
+	}
+	/**
+	 * Informa al jardinero sobre los valores de la humedad
+	 * @param humidity
+	 * @return Valor de la humedad actual
+	 */
+    private String actualHumidity(double humidity) {
+		return "Current humidity: " + humidity;
+    	
+    }	
+	
+	//Calcula el nivel medio de humedad
+	private double getAverageHumidity() {
+		double addition=0;
+		for(HumiditySensor hs:humiditySensors) {
+			addition+=hs.getHumidity();
+		}
+		return addition/humiditySensors.size();
+	}
+	
+
+}

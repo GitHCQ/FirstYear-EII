@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package uo.mp.lab03.SocialNetWork.model;
+
+/**
+ * @author usuario
+ *
+ */
+public class TextMessage {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

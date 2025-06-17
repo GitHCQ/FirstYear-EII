@@ -1,0 +1,12 @@
+package uo.mp.lab06.greenhouse.actuators.doors;
+
+import uo.mp.lab06.greenhouse.controllers.devicescanner.Checkable;
+
+public class AutomaticDoor extends Door implements Checkable, VentilationDevice {
+
+	public AutomaticDoor(int id) {
+		super(id);
+	}
+	//Reimplementar open y close
+
+}

@@ -1,0 +1,16 @@
+package uo.mp.lab03.SocialApp.model;
+
+
+
+public class Image extends Item {
+	private String fileName;
+	private String caption; //Pie de foto
+	public Image(String user,String fileName,String caption) {
+		super(user);
+		if (fileName == null || fileName.isEmpty() || caption == null || caption.isEmpty()) {
+            throw new IllegalArgumentException("Filename and caption cannot be null or empty");
+        }
+        this.fileName = fileName;
+        this.caption = caption;
+	}
+}

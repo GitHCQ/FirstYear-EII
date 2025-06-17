@@ -1,0 +1,187 @@
+package uo.mp.util.collections.impl;
+
+import java.util.Iterator;
+import java.util.Objects;
+
+public class LinkedList extends AbstractList<Object> {
+    Node head;
+    private class Node {
+        Object element;
+        Node next;
+
+        Node(Object element, Node node) {
+            this.element = element;
+            this.next = node;
+        }
+    }
+
+    public LinkedList() {
+        this.numberOfElements = 0;
+        this.head = null;
+    }
+
+    @Override
+    public int size() {
+        return numberOfElements;
+    }
+
+    private void checkIndex(int index) {
+        if (index < 0 || index >= this.size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.size() == 0;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        Node current = head;
+        while (current != null) {
+            if (current.element.equals(o)) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean add(Object element) {
+        add(size(), element);
+        return true;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        // Implementación omitida
+        return false;
+    }
+
+   
+
+    @Override
+	public int hashCode() {
+		return Objects.hash(head);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LinkedList other = (LinkedList) obj;
+		return Objects.equals(head, other.head);
+	}
+
+	@Override
+    public void clear() {
+        // Implementación omitida
+    }
+
+    @Override
+    public Object get(int index) {
+        checkIndex(index);
+        Node node = getNode(index);
+        return node.element;
+    }
+
+    private Node getNode(int index) {
+        checkIndex(index);
+        int pos = 0;
+        Node node = head;
+        while (pos < index) {
+            node = node.next;
+            pos += 1;
+        }
+        return node;
+    }
+
+    @Override
+    public Object set(int index, Object element) {
+        checkIndex(index);
+        Node node = getNode(index);
+        Object oldElement = node.element;
+        node.element = element;
+        return oldElement;
+    }
+
+    @Override
+    public void add(int index, Object element) {
+        checkIndex(index);
+        if (index == 0) {
+            head = new Node(element, head);
+        } else {
+            Node previus = getNode(index - 1);
+            previus.next = new Node(element, previus.next);
+        }
+        numberOfElements++;
+    }
+
+    @Override
+    public Object remove(int index) {
+        checkIndex(index);
+        Object removedElement;
+        if (index == 0) {
+            removedElement = head.element;
+            head = head.next;
+        } else {
+            Node previus = getNode(index - 1);
+            removedElement = previus.next.element;
+            previus.next = previus.next.next;
+        }
+        numberOfElements--;
+        return removedElement;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        // Implementación omitida
+        return -1;
+    }
+
+    @Override
+    public Iterator<Object> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<Object> {
+        Node next;
+        int nextIndex;
+        Node lastReturned;
+
+        private LinkedListIterator() {
+            next = head;
+            nextIndex = 0;
+            lastReturned = null;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public Object next() {
+            lastReturned = next;
+            next = next.next;
+            nextIndex++;
+            return lastReturned.element;
+        }
+
+        @Override
+        public void remove() {
+            if (lastReturned == null) {
+                throw new IllegalStateException("No es posible eliminar el elemento");
+            }
+            LinkedList.this.remove(nextIndex - 1);
+            nextIndex--;
+            lastReturned = null;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+newspaper	El Mundo	4	10
+magazine	PCWord	14JJJ	30	QUARTERLY
+magazine	Diez Minutos	
+
+comic	El Mueble	4	10	BIMONTLY
+magazine	Hola	14	30	WEEKLY

@@ -1,0 +1,11 @@
+package uo.mp.lab03.SocialApp.model;
+
+import java.util.ArrayList;
+
+public class Image {
+	private String user;
+	private int likes;
+	private String fileName;
+	private String caption; //Pie de foto
+	private ArrayList<String>comments;
+}

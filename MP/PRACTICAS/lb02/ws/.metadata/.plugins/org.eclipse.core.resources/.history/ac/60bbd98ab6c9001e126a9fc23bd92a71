@@ -1,0 +1,33 @@
+package uo.mp.lab02.game.model;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import uo.mp.lab02.game.model.Game2048;
+import uo.mp.lab02.game.model.util.ForTesting;
+
+public class Game2048MoveLeftTest {
+	// Escenarios:
+			// caso 1: Matriz con valores que se puedan sumar solo en la primera fila
+			// caso 2: Matriz con valores que se puedan sumar solo en la segunda fila
+			// caso 3: Matriz con valores que se puedan sumar solo en la tercera fila
+		    // caso 4: Matriz con valores que se puedan sumar en ninguna fila
+		    // caso 5: Matriz llena
+		    // caso 6: Matriz vacia.
+
+			@Test
+			public void SumOnlyFirstRow() {
+			Game2048 game = new Game2048(ForTesting.ONLYFISTROW); //{{2,2,0},{0,0,0},{0,0,0}}
+			int[][] nueva = {{4, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+			game.moveLeft();
+			assertArrayEquals(nueva, game.getBoard());
+		  }
+			@Test
+			public void SumOnlySecondRow() {
+			Game2048 game = new Game2048(ForTesting.ONLYSECONDROW); //{{2,2,0},{0,0,0},{0,0,0}}
+			int[][] nueva = {{0, 0, 0}, {4, 0, 0}, {0, 0, 0}};
+			game.moveLeft();
+			assertArrayEquals(nueva, game.getBoard());
+		  }
+}

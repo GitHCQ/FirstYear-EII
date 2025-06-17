@@ -1,0 +1,73 @@
+/**
+ * 
+ */
+package uo.mp.lab03.dome.service;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import uo.mp.lab03.dome.model.Cd;
+import uo.mp.lab03.dome.model.Dvd;
+import uo.mp.lab03.dome.model.Item;
+
+class MediaLibraryOwnedTest {
+    /*
+     * Escenarios:
+     * Caso 1: Hay un cd owned en una lista con un elemento cd
+     * Caso 2: Hay un dvd owned en una lista con tres elementos dvd
+     * Caso 3: Hay un cd owned en una lista con cd y dvd.
+     * Caso 4: Hay un dvd owned en una lista con cd y dvd.
+     */
+    private Item aCD;
+    private Item Dvd;
+    private String theTitle;
+    private String theArtist;
+    private String theDirector;
+    private int theTime;
+    private int theTracks;
+    private MediaLibrery ml;
+
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeEach
+    void setUp() throws Exception {
+	theTitle = "Come Together";
+	theArtist = "Beatles";
+	theTime = 70;
+	theTracks = 4;
+	theDirector = "Tarantino";
+	aCD = new Cd(theTitle, theArtist, theTracks, theTime);
+	Dvd = new Dvd(theTitle, theDirector, theTime);
+	ml = new MediaLibrery();
+
+    }
+
+    @Test
+    void ownedOneCd() {
+	ml.add(aCD);
+	ArrayList<Item> itemsResult = ml.getItems();
+	aCD.setOwn(true);
+	assertEquals(1, itemsResult.size());
+	assertTrue(itemsResult.contains(aCD));
+	assertTrue(aCD.getOwn());
+
+    }
+    @Test
+    void ownedOneDvdList3Elements() {
+	ml.add(Dvd);
+	ml.add(new Dvd("Cars", "Hugo", 120));
+	ml.add(new Dvd("Cars2", "Hugo", 123));
+	ArrayList<Item> itemsResult = ml.getItems();
+	aCD.setOwn(true);
+	assertEquals(1, itemsResult.size());
+	assertTrue(itemsResult.contains(aCD));
+	assertTrue(aCD.getOwn());
+
+    }
+}

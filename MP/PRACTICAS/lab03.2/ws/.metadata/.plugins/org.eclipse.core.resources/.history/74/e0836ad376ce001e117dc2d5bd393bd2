@@ -1,0 +1,15 @@
+package uo.mp.lab03.SocialApp.model;
+
+import java.util.ArrayList;
+
+public class Item {
+
+	private String user;
+	private int likes;
+	private ArrayList<String> comments;
+
+	public Item() {
+		super();
+	}
+
+}

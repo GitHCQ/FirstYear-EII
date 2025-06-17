@@ -1,0 +1,51 @@
+package uo.mp.lab05.shapes;
+
+import java.io.PrintStream;
+
+import uo.mp.lab05.drawing.interfacerepository.Drawable;
+import uo.mp.util.check.ArgumentChecks;
+
+public abstract class Shape {
+
+	/**
+	 * The x coordinate of the upper-left corner.
+	 */
+	protected int x;
+	/**
+	 * The y coordinate of the upper-left corner.
+	 */
+	protected int y;
+	protected Colour colour;
+
+	public Shape(int x,int y,Colour colour) {
+		ArgumentChecks.isTrue(x >= 0, "Illegal argument, must be x >= 0");
+		ArgumentChecks.isTrue(y >= 0,  "Illegal argument, must be y >= 0");
+		ArgumentChecks.isTrue(colour != null, "Illegal argument, must be colour != null");
+		this.x = x;
+		this.y = y;
+		this.colour = colour;
+	}
+
+	/**
+	 * @return the x
+	 */
+	protected int getX() {
+		return x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	protected int getY() {
+		return y;
+	}
+
+	/**
+	 * @return the colour
+	 */
+	public Colour getColour() {
+		return colour;
+	}
+	public abstract String draw(PrintStream out);
+
+}

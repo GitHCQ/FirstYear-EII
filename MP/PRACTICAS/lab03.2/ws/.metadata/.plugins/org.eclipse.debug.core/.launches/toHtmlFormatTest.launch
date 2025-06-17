@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/carbajales_quintana_hugo_lab04_task_post/Test/uo/mp/lab03/SocialApp/service/toHtmlFormatTest.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value=""/>
+    <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
+    <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit5"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="uo.mp.lab03.SocialApp.service.toHtmlFormatTest"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="carbajales_quintana_hugo_lab04_task_post"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-ea"/>
+</launchConfiguration>

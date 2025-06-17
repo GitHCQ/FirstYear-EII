@@ -1,0 +1,27 @@
+package uo.mp.lab06.greenhouse.controllers.devicescanner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DeviceScanner {
+	List<Checkable> devices=new ArrayList<>();
+	/**
+	 * Metodo que añade un device a la lista
+	 * @param device
+	 */
+	public void add(Checkable device) {
+		devices.add(device);
+	}
+	/**
+	 * @return Una lista de scaners
+	 */
+	public List<String>scan(){
+		List<String>messages=new ArrayList<String>();
+		for(Checkable device:devices) {
+			if(!device.check())
+			messages.add("WARNING: Device "+device.toString()+" not working"
+					+ "properly");
+		}
+		return messages;
+	}
+}

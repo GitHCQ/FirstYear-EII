@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package uo.mp.lab05.shapes;
+
+import uo.mp.lab05.drawing.interfacerepository.Drawable;
+
+/**
+ * @author usuario
+ *
+ */
+public class Circle implements Drawable{ 
+	private int x;
+	private int y;
+	private int 
+}

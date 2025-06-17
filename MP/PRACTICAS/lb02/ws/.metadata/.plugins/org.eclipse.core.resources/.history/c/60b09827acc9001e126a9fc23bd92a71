@@ -1,0 +1,13 @@
+import junit.framework.TestCase;
+
+/**
+ * 
+ */
+
+/**
+ * @author usuario
+ *
+ */
+public class Game2048MoveLeft extends TestCase {
+
+}

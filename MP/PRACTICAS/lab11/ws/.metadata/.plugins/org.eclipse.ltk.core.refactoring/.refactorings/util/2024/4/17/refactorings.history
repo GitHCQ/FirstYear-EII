@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;uo.mp.util.log&apos; to &apos;lab09_skeleton/src/uo.mp.newsstand.service.serializers&apos;&#x0D;&#x0A;- Original project: &apos;util&apos;&#x0D;&#x0A;- Destination element: &apos;lab09_skeleton/src/uo.mp.newsstand.service.serializers&apos;&#x0D;&#x0A;- Original element: &apos;util/src/uo.mp.util.log&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=lab09_skeleton/src&lt;uo.mp.newsstand.service.serializers" element1="/src&lt;uo.mp.util.log" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1714043478219" version="1.0"/>
+</session>

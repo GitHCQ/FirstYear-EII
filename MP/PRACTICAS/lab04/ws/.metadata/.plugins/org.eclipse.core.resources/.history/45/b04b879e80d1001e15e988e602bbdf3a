@@ -1,0 +1,9 @@
+package uo.mp.lab04.dome.model;
+
+import uo.mp.lab04.dome.model.Platform;
+
+public enum Platform {
+   	XBOX, PLAYSTATION, NINTENDO
+       }
+
+

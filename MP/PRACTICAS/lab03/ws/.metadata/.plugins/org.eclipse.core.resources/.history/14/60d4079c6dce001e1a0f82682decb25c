@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package uo.mp.lab03.dome.ui;
+
+/**
+ * @author UO300798
+ *
+ */
+public class MediaPlayer {
+
+    public void run() {
+
+    }
+
+}
